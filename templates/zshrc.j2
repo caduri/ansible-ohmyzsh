@@ -92,6 +92,19 @@ export SHELL="/usr/local/bin/zsh"
 export LC_TYPE="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
+# Pyenv and pipenv initialization
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+eval "$(pipenv --completion)"
+
+# Nvm initialization
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
 # Load aliases
 if [ -f "${HOME}/.zsh/aliases" ]; then
     source "${HOME}/.zsh/aliases"
@@ -106,4 +119,4 @@ if [ -d "${HOME}/.zsh/conf.d" ]; then
     done
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f "${HOME}/.fzf.zsh" ] && source "${HOME}/.fzf.zsh"
