@@ -36,11 +36,7 @@ alias digextip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias curlextip='curl -s https://4.ifcfg.me/' # HTTPS
 alias curlextip1='curl curlmyip.com'
 
-# On MAC: do not use /usr/local/bin/ssh from Homebrew, use system one:
-# also to make this work with 'git push', make sure you removed openssh package from homebrew
-# so there is a correct (/usr/bin/ssh) client in your $PATH
-alias ssh='/usr/bin/ssh -Y'  # This also enables 'UseKeychan' and 'AddKeysToAgent' ~/.ssh/config options
-                             # -Y - use X11 Forwarding by default (works on Linux only)
+alias brew='env PATH=${PATH//$(pyenv root)\/shims:/} brew'
 
 {% if ansible_os_family == 'Darwin' %}
 #===========================================================================
